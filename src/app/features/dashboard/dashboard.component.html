@@ -1,0 +1,33 @@
+<div class="dashboard-wrapper">
+  <mat-toolbar color="primary">Painel do Profissional</mat-toolbar>
+
+  <div class="dashboard-content">
+    <mat-card class="card-atendimentos">
+      <h2>Próximos Atendimentos</h2>
+      <mat-list *ngIf="atendimentos.length; else nenhum">
+        <mat-list-item *ngFor="let item of atendimentos">
+          <mat-icon [style.color]="getStatusColor(item.status)" matListIcon>
+            {{ getIcon(item.status) }}
+          </mat-icon>
+          <div class="list-content">
+            <p class="cliente">{{ item.nomeCliente }}</p>
+            <p class="horario">{{ item.horario }}</p>
+          </div>
+          <span class="status">{{ item.status | titlecase }}</span>
+        </mat-list-item>
+      </mat-list>
+      <ng-template #nenhum>
+        <p class="sem-agendamentos">Nenhum atendimento para hoje</p>
+      </ng-template>
+    </mat-card>
+
+    <mat-card class="card-acoes">
+      <h2>Ações Rápidas</h2>
+      <div class="acoes-grid">
+        <button mat-stroked-button color="primary">Criar novo agendamento</button>
+        <button mat-stroked-button color="accent">Editar minha agenda</button>
+        <button mat-stroked-button color="warn">Ver meus clientes</button>
+      </div>
+    </mat-card>
+  </div>
+</div>

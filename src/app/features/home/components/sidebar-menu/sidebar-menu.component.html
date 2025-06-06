@@ -1,0 +1,14 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" opened aria-label="Menu principal">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/agenda/configurar" aria-label="Configurar Agenda">Configurar Agenda</a>
+      <a mat-list-item routerLink="/agenda/ver" aria-label="Ver Agenda">Ver Agenda</a>
+      <a mat-list-item routerLink="/mensagens" aria-label="Mensagens">Mensagens</a>
+      <a mat-list-item routerLink="/configuracoes" aria-label="Configurações">Configurações</a>
+      <button mat-button (click)="logout()" aria-label="Sair">Sair</button>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

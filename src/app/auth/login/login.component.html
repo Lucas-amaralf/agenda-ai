@@ -1,0 +1,33 @@
+<div class="login-wrapper">
+  <mat-card class="login-card">
+    <h1 class="title">Agendaí</h1>
+    <p class="subtitle">Acesse sua conta para continuar</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" />
+        <mat-error *ngIf="form.get('email')?.invalid">Email inválido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="senha" type="password" />
+        <mat-error *ngIf="form.get('senha')?.hasError('required')">Senha obrigatória</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" [disabled]="form.invalid">
+        Entrar
+      </button>
+
+      <mat-error *ngIf="loginError" class="error-message">
+        Credenciais inválidas. Tente novamente.
+      </mat-error>
+    </form>
+
+    <p class="register-link">
+      Não tem uma conta?
+      <a routerLink="/register">Crie uma agora</a>
+    </p>
+  </mat-card>
+</div>

@@ -1,0 +1,66 @@
+@use '../../shared/styles/theme' as *;
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: $color-bg-light;
+  padding: 16px;
+  font-family: $font-family-base;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  border-radius: 12px;
+  background-color: $color-card-bg;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: $color-text-main;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: $color-text-muted;
+  margin-bottom: 24px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error-message {
+  margin-top: 12px;
+  color: $color-error;
+  font-size: 0.85rem;
+}
+
+.register-link {
+  margin-top: 24px;
+  font-size: 0.875rem;
+  color: $color-text-muted;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

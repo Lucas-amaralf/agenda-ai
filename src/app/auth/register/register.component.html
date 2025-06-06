@@ -1,0 +1,47 @@
+<div class="register-wrapper">
+  <mat-card class="register-card">
+    <h1 class="title">Criar Conta</h1>
+    <p class="subtitle">Preencha os dados para se cadastrar</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome completo</mat-label>
+        <input matInput formControlName="nome" type="text" />
+        <mat-error *ngIf="form.get('nome')?.hasError('required')">Nome obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" />
+        <mat-error *ngIf="form.get('email')?.hasError('required')">Email obrigatório</mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">Email inválido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="senha" type="password" />
+        <mat-error *ngIf="form.get('senha')?.hasError('required')">Senha obrigatória</mat-error>
+        <mat-error *ngIf="form.get('senha')?.hasError('minlength')">Mínimo de 8 caracteres</mat-error>
+        <mat-error *ngIf="form.get('senha')?.hasError('pattern')">
+          A senha deve conter letra maiúscula, minúscula e número
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirmar senha</mat-label>
+        <input matInput formControlName="confirmarSenha" type="password" />
+        <mat-error *ngIf="form.get('confirmarSenha')?.hasError('required')">Confirme a senha</mat-error>
+        <mat-error *ngIf="form.hasError('senhasDiferentes')">Senhas não coincidem</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" [disabled]="form.invalid">
+        Criar conta
+      </button>
+
+      <p class="login-link">
+        Já tem uma conta?
+        <a routerLink="/login">Acesse aqui</a>
+      </p>
+    </form>
+  </mat-card>
+</div>
